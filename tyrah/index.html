@@ -22,7 +22,7 @@ body {padding-left: 10px;}
 
 <body>
   <div class="swimming">
-    <h4 style="display: inline;">Swimming </h4><span>(3900 meters):</span>
+    <h4 style="display: inline;">Swimming: </h4><span>(3900 meters):</span>
     <br>
     <span class="content"></span>
     <span class="swimming"></span> meters
@@ -35,7 +35,7 @@ body {padding-left: 10px;}
   </div>
   <br>
   <div class="biking" style="display: inline">
-    <h4 style="display: inline;">Biking</h4><span> (112 miles)</span>:
+    <h4 style="display: inline;">Biking:</h4><span> (112 miles)</span>
     <br>
     <span class="content"></span>
     <span class="biking"></span> miles
@@ -49,7 +49,7 @@ body {padding-left: 10px;}
   <br>
   <br>
   <div class="running">
-    <h4 style="display: inline;">Running </h4><span>(26.2 miles)</span>:
+    <h4 style="display: inline;">Running: </h4><span>(26.2 miles)</span>
     <br>
     <span class="content"></span>
     <span class="running"></span> miles
@@ -85,7 +85,7 @@ function removeSwimming() {
 }
 
 function addBiking() {
-  biking = parseInt(biking + 1);
+  biking = parseInt(biking) + 1;
   localStorage.setItem('biking', biking);
   $('.biking .content').html(biking);
 }
