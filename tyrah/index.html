@@ -13,6 +13,8 @@ button {margin: 0px 0px 0px 0px;}
 .glyphicon {padding: 0px 0px 0px 0px;}
 .glyphicon {margin: 0px 0px 0px 0px;}
 .content {padding-left: 20px;}
+body {padding-top: 10px;}
+body {padding-left: 10px;}
 </style>
 
 <body>
@@ -20,34 +22,41 @@ button {margin: 0px 0px 0px 0px;}
     <h4 style="display: inline;">Swimming </h4><span>(3900 meters):</span>
     <span class="content"></span>
     <span class="swimming"></span> meters
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-primary btn">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-secondary btn">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
   </div>
+  <br>
   <div class="biking" style="display: inline">
     <h4 style="display: inline;">Biking</h4><span> (112 miles)</span>:
     <span class="content"></span>
     <span class="biking"></span> miles
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-primary btn">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-secondary btn">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
   </div>
+  <br>
+  <br>
   <div class="running">
     <h4 style="display: inline;">Running </h4><span>(26.2 miles)</span>:
     <span class="content"></span>
     <span class="running"></span> miles
-    <button type="button" class="btn btn-secondary btn-sm" style="margin-right: 2px;">
+    <button type="button" class="btn btn-primary btn" style="margin-right: 2px;">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-secondary btn">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
+  </div>
+  <br>
+  <div>
+    <button type="button" class="btn btn-primary btn clear-all">Clear All</button>
   </div>
 </body>
 <script type="text/javascript">
@@ -91,7 +100,6 @@ function removeRunning() {
   $('.running .content').html(running);
 }
 
-
 $('.swimming .content').html(swimming);
 $('.biking .content').html(biking);
 $('.running .content').html(running);
@@ -102,7 +110,17 @@ $('.running .glyphicon-plus').click(addRunning);
 $('.swimming .glyphicon-minus').click(removeSwimming);
 $('.biking .glyphicon-minus').click(removeBiking);
 $('.running .glyphicon-minus').click(removeRunning);
+$('.clear-all').click(clearAll);
 
+function clearAll() {
+  running = 0; swimming = 0; biking = 0;
+  localStorage.setItem('running', running); 
+  localStorage.setItem('swimming', swimming); 
+  localStorage.setItem('biking', biking); 
+  $('.swimming .content').html(swimming);
+  $('.biking .content').html(biking);
+  $('.running .content').html(running);
+}
 
 </script>
 </html>
