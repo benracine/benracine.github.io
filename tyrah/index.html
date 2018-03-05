@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
 
 <style>
 button {padding: 0px 0px 0px 0px;}
@@ -15,6 +16,7 @@ button {margin: 0px 0px 0px 0px;}
 .content {padding-left: 20px;}
 body {padding-top: 10px;}
 body {padding-left: 10px;}
+.glyphicon-plus {width: 80px;}
 </style>
 
 <body>
@@ -110,7 +112,13 @@ $('.running .glyphicon-plus').click(addRunning);
 $('.swimming .glyphicon-minus').click(removeSwimming);
 $('.biking .glyphicon-minus').click(removeBiking);
 $('.running .glyphicon-minus').click(removeRunning);
-$('.clear-all').click(clearAll);
+$('.clear-all').click(function() {
+  var msg = 'Are you *really* sure that you want to delete all of your progress? I only included this for debugging purposes, really.';
+  bootbox.confirm(msg, function(result) {
+    if (result)
+      clearAll();
+  });
+});
 
 function clearAll() {
   running = 0; swimming = 0; biking = 0;
