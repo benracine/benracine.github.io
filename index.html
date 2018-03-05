@@ -124,6 +124,12 @@ $('.swimming .glyphicon-plus').on('tophold', function() {
   alert('long press occured');
 });
 
+$('.swimming .glyphicon plug').bind('taphold', tapholdHandler);
+
+function tapHolderHandler() {
+  alert('long press occured');
+}
+
 $('.biking .glyphicon-plus').click(addBiking);
 $('.biking .glyphicon-plus').click(addBiking);
 
