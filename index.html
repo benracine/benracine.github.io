@@ -81,6 +81,7 @@ function addSwimming() {
 
 function removeSwimming() {
   swimming = parseInt(swimming) - 100;
+  if (swimming < 0) swimming = 0;
   localStorage.setItem('swimming', swimming);
   $('.swimming .content').html(swimming);
 }
@@ -93,6 +94,7 @@ function addBiking() {
 
 function removeBiking() {
   biking = parseInt(biking) - 1;
+  if (biking < 0) biking = 0;
   localStorage.setItem('biking', biking);
   $('.biking .content').html(biking);
 }
@@ -105,6 +107,7 @@ function addRunning() {
 
 function removeRunning() {
   running = parseInt(running) - 1;
+  if (running < 0) running = 0;
   localStorage.setItem('running', running);
   $('.running .content').html(running);
 }
