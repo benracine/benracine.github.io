@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+button {padding: 0px 0px 0px 0px;}
+button {margin: 0px 0px 0px 0px;}
+.glyphicon {padding: 0px 0px 0px 0px;}
+.glyphicon {margin: 0px 0px 0px 0px;}
+.content {padding-left: 20px;}
+</style>
+
+<body>
+  <div class="swimming">
+    <h4 style="display: inline;">Swimming </h4><span>(3900 meters):</span>
+    <span class="content"></span>
+    <span class="swimming"></span> meters
+    <button type="button" class="btn btn-secondary btn-sm">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm">
+      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="biking" style="display: inline">
+    <h4 style="display: inline;">Biking</h4><span> (112 miles)</span>:
+    <span class="content"></span>
+    <span class="biking"></span> miles
+    <button type="button" class="btn btn-secondary btn-sm">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm">
+      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="running">
+    <h4 style="display: inline;">Running </h4><span>(26.2 miles)</span>:
+    <span class="content"></span>
+    <span class="running"></span> miles
+    <button type="button" class="btn btn-secondary btn-sm" style="margin-right: 2px;">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm">
+      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+    </button>
+  </div>
+</body>
+<script type="text/javascript">
+var swimming = localStorage.getItem('swimming') || 0;
+var biking = localStorage.getItem('biking') || 0;
+var running = localStorage.getItem('running') || 0;
+
+function addSwimming() {
+  swimming = parseInt(swimming) + 100;
+  localStorage.setItem('swimming', swimming);
+  $('.swimming .content').html(swimming);
+}
+
+function removeSwimming() {
+  swimming = parseInt(swimming) - 100;
+  localStorage.setItem('swimming', swimming);
+  $('.swimming .content').html(swimming);
+}
+
+function addBiking() {
+  biking = parseInt(biking + 1);
+  localStorage.setItem('biking', biking);
+  $('.biking .content').html(biking);
+}
+
+function removeBiking() {
+  biking = parseInt(biking) - 1;
+  localStorage.setItem('biking', biking);
+  $('.biking .content').html(biking);
+}
+
+function addRunning() {
+  running = parseInt(running) + 1;
+  localStorage.setItem('running', running);
+  $('.running .content').html(running);
+}
+
+function removeRunning() {
+  running = parseInt(running) - 1;
+  localStorage.setItem('running', running);
+  $('.running .content').html(running);
+}
+
+
+$('.swimming .content').html(swimming);
+$('.biking .content').html(biking);
+$('.running .content').html(running);
+
+$('.swimming .glyphicon-plus').click(addSwimming);
+$('.biking .glyphicon-plus').click(addBiking);
+$('.running .glyphicon-plus').click(addRunning);
+$('.swimming .glyphicon-minus').click(removeSwimming);
+$('.biking .glyphicon-minus').click(removeBiking);
+$('.running .glyphicon-minus').click(removeRunning);
+
+
+</script>
+</html>
