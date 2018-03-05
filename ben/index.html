@@ -7,6 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
+<script src="https://code.jquery.com/mobile/git/jquery.mobile-git.min.js"></script>
 
 <style>
 button {padding: 0px 0px 0px 0px;}
@@ -117,12 +118,23 @@ $('.swimming .content').html(swimming);
 $('.biking .content').html(biking);
 $('.running .content').html(running);
 
+// Click handlers
 $('.swimming .glyphicon-plus').click(addSwimming);
+$('.swimming .glyphicon-plus').on('tophold', function() {
+  alert('long press occured');
+});
+
 $('.biking .glyphicon-plus').click(addBiking);
+$('.biking .glyphicon-plus').click(addBiking);
+
 $('.running .glyphicon-plus').click(addRunning);
+$('.running .glyphicon-plus').click(addRunning);
+
 $('.swimming .glyphicon-minus').click(removeSwimming);
 $('.biking .glyphicon-minus').click(removeBiking);
 $('.running .glyphicon-minus').click(removeRunning);
+
+
 $('.clear-all').click(function() {
   var msg = 'Are you *really* sure that you want to delete all of your progress? I only included this for debugging purposes, really.';
   bootbox.confirm(msg, function(result) {
