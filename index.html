@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
 
 <style>
 button {padding: 0px 0px 0px 0px;}
@@ -15,41 +16,55 @@ button {margin: 0px 0px 0px 0px;}
 .content {padding-left: 20px;}
 body {padding-top: 10px;}
 body {padding-left: 10px;}
+.glyphicon-plus {width: 30px;}
+.btn-primary {margin-left: 20px;}
 </style>
 
 <body>
   <div class="swimming">
     <h4 style="display: inline;">Swimming </h4><span>(3900 meters):</span>
+    <br>
     <span class="content"></span>
     <span class="swimming"></span> meters
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-primary btn">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-secondary btn">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
   </div>
+  <br>
   <div class="biking" style="display: inline">
     <h4 style="display: inline;">Biking</h4><span> (112 miles)</span>:
+    <br>
     <span class="content"></span>
     <span class="biking"></span> miles
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-primary btn">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-secondary btn">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
   </div>
+  <br>
+  <br>
   <div class="running">
     <h4 style="display: inline;">Running </h4><span>(26.2 miles)</span>:
+    <br>
     <span class="content"></span>
     <span class="running"></span> miles
-    <button type="button" class="btn btn-secondary btn-sm" style="margin-right: 2px;">
+    <button type="button" class="btn btn-primary btn" style="margin-right: 2px;">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <button type="button" class="btn btn-secondary btn-sm">
+    <button type="button" class="btn btn-secondary btn">
       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
     </button>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div>
+    <button type="button" class="btn btn-danger btn clear-all">Clear All</button>
   </div>
 </body>
 <script type="text/javascript">
@@ -93,7 +108,6 @@ function removeRunning() {
   $('.running .content').html(running);
 }
 
-
 $('.swimming .content').html(swimming);
 $('.biking .content').html(biking);
 $('.running .content').html(running);
@@ -104,7 +118,23 @@ $('.running .glyphicon-plus').click(addRunning);
 $('.swimming .glyphicon-minus').click(removeSwimming);
 $('.biking .glyphicon-minus').click(removeBiking);
 $('.running .glyphicon-minus').click(removeRunning);
+$('.clear-all').click(function() {
+  var msg = 'Are you *really* sure that you want to delete all of your progress? I only included this for debugging purposes, really.';
+  bootbox.confirm(msg, function(result) {
+    if (result)
+      clearAll();
+  });
+});
 
+function clearAll() {
+  running = 0; swimming = 0; biking = 0;
+  localStorage.setItem('running', running); 
+  localStorage.setItem('swimming', swimming); 
+  localStorage.setItem('biking', biking); 
+  $('.swimming .content').html(swimming);
+  $('.biking .content').html(biking);
+  $('.running .content').html(running);
+}
 
 </script>
 </html>
