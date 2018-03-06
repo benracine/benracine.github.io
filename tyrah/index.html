@@ -119,7 +119,6 @@ $('.biking .content').html(biking);
 $('.running .content').html(running);
 
 // Click handlers
-$('.swimming .glyphicon-plus').click(addSwimming);
 $('.swimming .glyphicon-plus').on('tophold', function() {
   alert('long press occured');
 });
@@ -130,10 +129,8 @@ function tapholdHandler() {
   alert('long press occured');
 }
 
+$('.swimming .glyphicon-plus').click(addSwimming);
 $('.biking .glyphicon-plus').click(addBiking);
-$('.biking .glyphicon-plus').click(addBiking);
-
-$('.running .glyphicon-plus').click(addRunning);
 $('.running .glyphicon-plus').click(addRunning);
 
 $('.swimming .glyphicon-minus').click(removeSwimming);
