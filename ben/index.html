@@ -102,13 +102,13 @@ function removeBiking() {
 }
 
 function addRunning() {
-  running = parseInt(running) + 1;
+  running = parseFloat(running) + 0.5;
   localStorage.setItem('running', running);
   $('.running .content').html(running);
 }
 
 function removeRunning() {
-  running = parseInt(running) - 1;
+  running = parseFloat(running) - 0.5;
   if (running < 0) running = 0;
   localStorage.setItem('running', running);
   $('.running .content').html(running);
@@ -129,14 +129,21 @@ function tapholdHandler() {
   alert('long press occured');
 }
 
+// Add 1 unit
 $('.swimming .glyphicon-plus').click(addSwimming);
 $('.biking .glyphicon-plus').click(addBiking);
 $('.running .glyphicon-plus').click(addRunning);
 
+// Add specific unit
+/*
+$('.swimming .glyphicon-plus').click();
+$('.biking .glyphicon-plus').click();
+$('.running .glyphicon-plus').click();
+*/
+
 $('.swimming .glyphicon-minus').click(removeSwimming);
 $('.biking .glyphicon-minus').click(removeBiking);
 $('.running .glyphicon-minus').click(removeRunning);
-
 
 $('.clear-all').click(function() {
   var msg = 'Are you *really* sure that you want to delete all of your progress? I only included this for debugging purposes, really.';
