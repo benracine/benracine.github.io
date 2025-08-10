@@ -21,23 +21,38 @@
     <meta name="theme-color" content="#0f172a" />
     <style>
       :root {
-        --bg: #0b1020;
-        --card: #11162a;
-        --text: #e5e7eb;
-        --muted: #9ca3af;
-        --accent: #93c5fd;
-        --accent-2: #60a5fa;
-        --ring: rgba(147, 197, 253, 0.35);
+        --bg: #0a0f1c;
+        --card: #0f1629;
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --accent: #67e8f9;
+        --accent-2: #a78bfa;
+        --ring: rgba(103, 232, 249, 0.35);
       }
       @media (prefers-color-scheme: light) {
         :root {
           --bg: #f8fafc;
           --card: #ffffff;
-          --text: #0f172a;
-          --muted: #475569;
-          --accent: #2563eb;
-          --accent-2: #1d4ed8;
-          --ring: rgba(37, 99, 235, 0.25);
+          --text: #1e293b;
+          --muted: #64748b;
+          --accent: #0891b2;
+          --accent-2: #7c3aed;
+          --ring: rgba(8, 145, 178, 0.25);
+        }
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background: radial-gradient(
+              1200px 800px at 80% -10%,
+              rgba(103, 232, 249, 0.08),
+              transparent 60%
+            ),
+            radial-gradient(
+              900px 700px at -10% 20%,
+              rgba(167, 139, 250, 0.05),
+              transparent 55%
+            ),
+            #f8fafc;
         }
       }
       * {
@@ -53,12 +68,12 @@
           Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
         background: radial-gradient(
             1200px 800px at 80% -10%,
-            rgba(99, 102, 241, 0.15),
+            rgba(103, 232, 249, 0.12),
             transparent 60%
           ),
           radial-gradient(
             900px 700px at -10% 20%,
-            rgba(59, 130, 246, 0.12),
+            rgba(167, 139, 250, 0.08),
             transparent 55%
           ),
           var(--bg);
