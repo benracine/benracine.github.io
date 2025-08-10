@@ -1,173 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ben Racine — Software Engineer</title>
-  <meta name="description" content="Software engineer focused on Rust, TypeScript, and high‑assurance systems." />
-  <meta property="og:title" content="Ben Racine — Software Engineer" />
-  <meta property="og:description" content="Rust • TypeScript • Systems • Safety‑critical" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/benracine?v=4&s=200" />
-  <meta name="theme-color" content="#0f172a" />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --card: #11162a;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #93c5fd;
-      --accent-2: #60a5fa;
-      --ring: rgba(147, 197, 253, .35);
-    }
-    @media (prefers-color-scheme: light) {
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ben Racine — Software Engineer</title>
+    <meta
+      name="description"
+      content="Software engineer focused on Rust, TypeScript, and high‑assurance systems."
+    />
+    <meta property="og:title" content="Ben Racine — Software Engineer" />
+    <meta
+      property="og:description"
+      content="Rust • TypeScript • Systems • Safety‑critical"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://avatars.githubusercontent.com/benracine?v=4&s=200"
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <style>
       :root {
-        --bg: #f8fafc;
-        --card: #ffffff;
-        --text: #0f172a;
-        --muted: #475569;
-        --accent: #2563eb;
-        --accent-2: #1d4ed8;
-        --ring: rgba(37, 99, 235, .25);
+        --bg: #0b1020;
+        --card: #11162a;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #93c5fd;
+        --accent-2: #60a5fa;
+        --ring: rgba(147, 197, 253, 0.35);
       }
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 80% -10%, rgba(99, 102, 241, .15), transparent 60%),
-                  radial-gradient(900px 700px at -10% 20%, rgba(59, 130, 246, .12), transparent 55%),
-                  var(--bg);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 24px;
-    }
-    .card {
-      width: 100%;
-      max-width: 680px;
-      background: color-mix(in hsl, var(--card) 92%, transparent);
-      border: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.25);
-      backdrop-filter: saturate(1.2) blur(8px);
-    }
-    header {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 20px;
-      align-items: center;
-    }
-    .avatar {
-      width: 96px; height: 96px; border-radius: 16px; overflow: hidden;
-      border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
-    }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    h1 { font-size: clamp(22px, 3.4vw, 30px); margin: 0 0 6px; letter-spacing: .2px; }
-    .sub { color: var(--muted); margin: 0; font-size: 15px; }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f8fafc;
+          --card: #ffffff;
+          --text: #0f172a;
+          --muted: #475569;
+          --accent: #2563eb;
+          --accent-2: #1d4ed8;
+          --ring: rgba(37, 99, 235, 0.25);
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: radial-gradient(
+            1200px 800px at 80% -10%,
+            rgba(99, 102, 241, 0.15),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 700px at -10% 20%,
+            rgba(59, 130, 246, 0.12),
+            transparent 55%
+          ),
+          var(--bg);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+      .card {
+        width: 100%;
+        max-width: 680px;
+        background: color-mix(in hsl, var(--card) 92%, transparent);
+        border: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+        backdrop-filter: saturate(1.2) blur(8px);
+      }
+      header {
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 20px;
+        align-items: center;
+      }
+      .avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      h1 {
+        font-size: clamp(22px, 3.4vw, 30px);
+        margin: 0 0 6px;
+        letter-spacing: 0.2px;
+      }
+      .sub {
+        color: var(--muted);
+        margin: 0;
+        font-size: 15px;
+      }
 
-    .bio { margin: 18px 0 0; line-height: 1.6; font-size: 16px; color: color-mix(in oklab, var(--text) 86%, #999 14%); }
+      .bio {
+        margin: 18px 0 0;
+        line-height: 1.6;
+        font-size: 16px;
+        color: color-mix(in oklab, var(--text) 86%, #999 14%);
+      }
 
-    .links { margin-top: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-    .btn {
-      text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
-      padding: 12px 14px; border-radius: 12px; font-weight: 560; letter-spacing: .15px;
-      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, transparent) 0%, color-mix(in oklab, var(--card) 98%, transparent) 100%);
-      color: var(--text); box-shadow: 0 2px 0 0 rgba(0,0,0,.12) inset;
-    }
-    .btn:hover { border-color: var(--accent); outline: 3px solid var(--ring); }
-    .btn:active { transform: translateY(1px); }
-    .icon { width: 18px; height: 18px; opacity: .9; }
+      .links {
+        margin-top: 22px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+      }
+      .btn {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+        padding: 12px 14px;
+        border-radius: 12px;
+        font-weight: 560;
+        letter-spacing: 0.15px;
+        background: linear-gradient(
+          180deg,
+          color-mix(in oklab, var(--card) 85%, transparent) 0%,
+          color-mix(in oklab, var(--card) 98%, transparent) 100%
+        );
+        color: var(--text);
+        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset;
+      }
+      .btn:hover {
+        border-color: var(--accent);
+        outline: 3px solid var(--ring);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .icon {
+        width: 18px;
+        height: 18px;
+        opacity: 0.9;
+      }
 
-    .meta { margin-top: 18px; display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
-    .dot { opacity: .4; }
-    footer { margin-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; }
-    .kicker { font-variant-numeric: tabular-nums; }
-    .tiny { opacity: .7; }
+      .meta {
+        margin-top: 18px;
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .dot {
+        opacity: 0.4;
+      }
+      footer {
+        margin-top: 26px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .kicker {
+        font-variant-numeric: tabular-nums;
+      }
+      .tiny {
+        opacity: 0.7;
+      }
 
-    .bio-mobile { display: none; }
+      .bio-mobile {
+        display: none;
+      }
 
-    /* Small screens */
-    @media (max-width: 768px) { 
-      header { grid-template-columns: 72px 1fr; } 
-      .avatar { width: 72px; height: 72px; border-radius: 12px; } 
-      .bio { display: none !important; }
-      .bio-mobile { display: block !important; margin: 18px 0 0; line-height: 1.6; font-size: 16px; color: color-mix(in oklab, var(--text) 86%, #999 14%); }
-      .meta { display: none !important; }
-      .links { gap: 8px; }
-    }
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ben Racine",
-    "url": "https://benracine.github.io/",
-    "sameAs": [
-      "https://www.linkedin.com/in/YOUR-LINKEDIN/",
-      "https://medium.com/@YOUR-MEDIUM",
-      "https://github.com/benracine"
-    ],
-    "jobTitle": "Senior Software Engineer",
-    "knowsAbout": ["Rust", "TypeScript", "React", "Tokio", "Axum", "High‑assurance systems"]
-  }
-  </script>
-</head>
-<body>
-  <main class="card" role="main">
-    <header>
-      <div class="avatar">
-        <img alt="Portrait of Ben Racine" src="https://avatars.githubusercontent.com/benracine?v=4&s=200" />
-      </div>
-      <div>
-        <h1>Ben Racine</h1>
-        <p class="sub">Rust • TypeScript • High Assurance Systems</p>
-        <p class="bio">
-          I build high-assurance full stack systems where reliability is paramount, using Rust, Tokio, Axum, TypeScript, React, and PostgreSQL. I apply deep computational and physical science expertise, enhanced by modern AI and cloud tools, to deliver elegant and verified solutions.
-        </p>
-        <p class="bio-mobile">
-          Veteran software engineer building high-assurance systems with modern tools and AI-enhanced workflows.
-        </p>
-        <div class="meta">
-          <span class="kicker">Houston</span>
-          <span class="dot">•</span>
-          <span class="kicker">benracindev@gmail.com</span>
-          <span class="dot">•</span>
-          <a href="tel:+13606107356" class="kicker" style="color: inherit; text-decoration: none;">360.610.7356</a>
+      /* Small screens */
+      @media (max-width: 768px) {
+        header {
+          grid-template-columns: 72px 1fr;
+        }
+        .avatar {
+          width: 72px;
+          height: 72px;
+          border-radius: 12px;
+        }
+        .bio {
+          display: none !important;
+        }
+        .bio-mobile {
+          display: block !important;
+          margin: 18px 0 0;
+          line-height: 1.6;
+          font-size: 16px;
+          color: color-mix(in oklab, var(--text) 86%, #999 14%);
+        }
+        .meta {
+          display: none !important;
+        }
+        .links {
+          gap: 8px;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ben Racine",
+        "url": "https://benracine.github.io/",
+        "sameAs": [
+          "https://www.linkedin.com/in/YOUR-LINKEDIN/",
+          "https://medium.com/@YOUR-MEDIUM",
+          "https://github.com/benracine"
+        ],
+        "jobTitle": "Senior Software Engineer",
+        "knowsAbout": [
+          "Rust",
+          "TypeScript",
+          "React",
+          "Tokio",
+          "Axum",
+          "High‑assurance systems"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main class="card" role="main">
+      <header>
+        <div class="avatar">
+          <img
+            alt="Portrait of Ben Racine"
+            src="https://avatars.githubusercontent.com/benracine?v=4&s=200"
+          />
         </div>
-      </div>
-    </header>
+        <div>
+          <h1>Ben Racine</h1>
+          <p class="sub">Rust • TypeScript • High Assurance Systems</p>
+          <p class="bio-mobile">
+            Veteran software engineer building high assurance systems with Rust and
+            other modern tools for aerospace-level reliability.
+          </p>
 
-    <section class="links" aria-label="Primary links">
-      <a class="btn" href="https://www.linkedin.com/in/ben-racine/" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-      <a class="btn" href="./BenRacine_Resume_Aug2025.pdf" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 0v6h6"/></svg>
-        Resume
-      </a>
-      <a class="btn" href="https://medium.com/@mylifewodoor/rust-in-2025-cf50d386f881" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-        Blog
-      </a>
-      <a class="btn" href="https://github.com/benracine" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.46-1.2-1.12-1.52-1.12-1.52-.92-.64.07-.63.07-.63 1.02.07 1.56 1.07 1.56 1.07.9 1.58 2.36 1.12 2.93.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .85-.28 2.8 1.05.81-.23 1.68-.35 2.55-.35s1.74.12 2.55.35c1.95-1.33 2.8-1.05 2.8-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.67.95.67 1.92 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.5A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg>
-        Sample Code
-      </a>
-      <a class="btn" href="mailto:benracinedev@gmail.com?subject=Hello%20from%20your%20portfolio%20site" onclick="if(!navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)){window.open('https://mail.google.com/mail/?view=cm&fs=1&to=benracinedev@gmail.com&su=Hello%20from%20your%20portfolio%20site', '_blank'); return false;}">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 6c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v.3l-10 6.4L2 6.3V6Zm0 2.7 8.9 5.7c.7.5 1.5.5 2.2 0L22 8.7V18a2 2 0 0 1-2 2H4c-1.1 0-2-.9-2-2V8.7Z"/></svg>
-        Email
-      </a>
-      <a class="btn" href="https://x.com/i3enhamin" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        Twitter
-      </a>
-    </section>
-  </main>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-</body>
+          <p class="bio">
+            I engineer high-assurance, safety-critical full stack systems with
+            Rust, Tokio, Axum, and TypeScript/React, underpinned by PostgreSQL.
+            Drawing on deep computational and physical science expertise, I
+            design and verify software for aerospace-grade reliability, enhanced
+            by modern cloud tooling and formal engineering practices.
+          </p>
+
+          <div class="meta">
+            <span class="kicker">Houston</span>
+            <span class="dot">•</span>
+            <span class="kicker">benracindev@gmail.com</span>
+            <span class="dot">•</span>
+            <a
+              href="tel:+13606107356"
+              class="kicker"
+              style="color: inherit; text-decoration: none"
+              >360.610.7356</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <section class="links" aria-label="Primary links">
+        <a
+          class="btn"
+          href="https://www.linkedin.com/in/ben-racine/"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+          LinkedIn
+        </a>
+        <a
+          class="btn"
+          href="./BenRacine_Resume_Aug2025.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 0v6h6"
+            />
+          </svg>
+          Resume
+        </a>
+        <a
+          class="btn"
+          href="https://medium.com/@mylifewodoor/rust-in-2025-cf50d386f881"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"
+            />
+          </svg>
+          Blog
+        </a>
+        <a
+          class="btn"
+          href="https://github.com/benracine"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.46-1.2-1.12-1.52-1.12-1.52-.92-.64.07-.63.07-.63 1.02.07 1.56 1.07 1.56 1.07.9 1.58 2.36 1.12 2.93.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .85-.28 2.8 1.05.81-.23 1.68-.35 2.55-.35s1.74.12 2.55.35c1.95-1.33 2.8-1.05 2.8-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.67.95.67 1.92 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.5A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
+            />
+          </svg>
+          Sample Code
+        </a>
+        <a
+          class="btn"
+          href="mailto:benracinedev@gmail.com?subject=Hello%20from%20your%20portfolio%20site"
+          onclick="if(!navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)){window.open('https://mail.google.com/mail/?view=cm&fs=1&to=benracinedev@gmail.com&su=Hello%20from%20your%20portfolio%20site', '_blank'); return false;}"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M2 6c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v.3l-10 6.4L2 6.3V6Zm0 2.7 8.9 5.7c.7.5 1.5.5 2.2 0L22 8.7V18a2 2 0 0 1-2 2H4c-1.1 0-2-.9-2-2V8.7Z"
+            />
+          </svg>
+          Email
+        </a>
+        <a
+          class="btn"
+          href="https://x.com/i3enhamin"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+            />
+          </svg>
+          Twitter
+        </a>
+      </section>
+    </main>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
