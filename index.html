@@ -78,6 +78,12 @@
         backdrop-filter: saturate(1.2) blur(8px);
       }
       header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .header-top {
         display: grid;
         grid-template-columns: 96px 1fr;
         gap: 20px;
@@ -108,7 +114,7 @@
       }
 
       .bio {
-        margin: 18px 0 0;
+        margin: 6px 0 0;
         line-height: 1.6;
         font-size: 16px;
         color: color-mix(in oklab, var(--text) 86%, #999 14%);
@@ -155,6 +161,7 @@
       .meta {
         margin-top: 18px;
         display: flex;
+        justify-content: center;
         gap: 14px;
         flex-wrap: wrap;
         color: var(--muted);
@@ -189,7 +196,7 @@
 
       /* Small screens */
       @media (max-width: 768px) {
-        header {
+        .header-top {
           grid-template-columns: 72px 1fr;
         }
         .avatar {
@@ -250,22 +257,21 @@
   <body>
     <main class="card" role="main">
       <header>
-        <div class="avatar">
-          <img
-            alt="Portrait of Ben Racine"
-            src="https://avatars.githubusercontent.com/benracine?v=4&s=200"
-          />
+        <div class="header-top">
+          <div class="avatar">
+            <img
+              alt="Portrait of Ben Racine"
+              src="https://avatars.githubusercontent.com/benracine?v=4&s=200"
+            />
+          </div>
+          <div>
+            <h1>Ben Racine</h1>
+            <p class="sub-mobile">High Assurance Systems • TypeScript • 🦀 Rust</p>
+            <p class="sub">High Assurance Systems • TypeScript • ⚛️ React • 🦀 Rust • Tokio • Axum • AWS • GCP</p>
+          </div>
         </div>
-        <div>
-          <h1>Ben Racine</h1>
-          <p class="sub-mobile">
-            High Assurance Systems • TypeScript • 🦀 Rust
-          </p>
-          <p class="sub">
-            High Assurance Systems • TypeScript • ⚛️ React • 🦀 Rust • ⏱️ Tokio
-            •
-          </p>
-          <p class="sub">🕸️ Axum • AWS • GCP</p>
+        
+        <div class="bio-content">
           <p class="bio-mobile">
             Veteran software engineer with 16+ years of experience, currently
             building high assurance systems with Rust and other modern tools for
