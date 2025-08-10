@@ -183,6 +183,10 @@
         display: none;
       }
 
+      .sub-mobile {
+        display: none;
+      }
+
       /* Small screens */
       @media (max-width: 768px) {
         header {
@@ -202,6 +206,15 @@
           line-height: 1.6;
           font-size: 16px;
           color: color-mix(in oklab, var(--text) 86%, #999 14%);
+        }
+        .sub {
+          display: none !important;
+        }
+        .sub-mobile {
+          display: block !important;
+          color: var(--muted);
+          margin: 0;
+          font-size: 15px;
         }
         .meta {
           display: none !important;
@@ -245,6 +258,7 @@
         </div>
         <div>
           <h1>Ben Racine</h1>
+          <p class="sub-mobile">Rust • TypeScript • High Assurance Systems</p>
           <p class="sub">Rust • TypeScript • High Assurance Systems • Tokio • Axum</p>
           <p class="bio-mobile">
             Veteran software engineer with 16+ years of experience, currently
