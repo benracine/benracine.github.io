@@ -1,167 +1,165 @@
 <!DOCTYPE html>
-<html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
-<script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ben Racine — Software Engineer</title>
+  <meta name="description" content="Software engineer focused on Rust, TypeScript, and high‑assurance systems." />
+  <meta property="og:title" content="Ben Racine — Software Engineer" />
+  <meta property="og:description" content="Rust • TypeScript • Systems • Safety‑critical" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/000000?v=4" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #11162a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #93c5fd;
+      --accent-2: #60a5fa;
+      --ring: rgba(147, 197, 253, .35);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #2563eb;
+        --accent-2: #1d4ed8;
+        --ring: rgba(37, 99, 235, .25);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 80% -10%, rgba(99, 102, 241, .15), transparent 60%),
+                  radial-gradient(900px 700px at -10% 20%, rgba(59, 130, 246, .12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 680px;
+      background: color-mix(in hsl, var(--card) 92%, transparent);
+      border: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      backdrop-filter: saturate(1.2) blur(8px);
+    }
+    header {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 16px; overflow: hidden;
+      border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    h1 { font-size: clamp(22px, 3.4vw, 30px); margin: 0 0 6px; letter-spacing: .2px; }
+    .sub { color: var(--muted); margin: 0; font-size: 15px; }
 
-<style>
-button {padding: 0px 0px 0px 0px;}
-button {margin: 0px 0px 0px 0px;}
-.glyphicon {padding: 0px 0px 0px 0px;}
-.glyphicon {margin: 0px 0px 0px 0px;}
-.content {padding-left: 20px;}
-body {padding-top: 10px;}
-body {padding-left: 10px;}
-.glyphicon-plus {width: 30px;}
-.btn-primary {margin-left: 20px; margin-right: 40px;}
-.btn {margin-left: 20px;}
-.filler {height: 200px; }
-</style>
+    .bio { margin: 18px 0 0; line-height: 1.6; font-size: 16px; color: color-mix(in oklab, var(--text) 86%, #999 14%); }
 
+    .links { margin-top: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+    .btn {
+      text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+      padding: 12px 14px; border-radius: 12px; font-weight: 560; letter-spacing: .15px;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--card) 85%, transparent) 0%, color-mix(in oklab, var(--card) 98%, transparent) 100%);
+      color: var(--text); box-shadow: 0 2px 0 0 rgba(0,0,0,.12) inset;
+    }
+    .btn:hover { border-color: var(--accent); outline: 3px solid var(--ring); }
+    .btn:active { transform: translateY(1px); }
+    .icon { width: 18px; height: 18px; opacity: .9; }
+
+    .meta { margin-top: 18px; display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
+    .dot { opacity: .4; }
+    footer { margin-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); font-size: 13px; }
+    .kicker { font-variant-numeric: tabular-nums; }
+    .tiny { opacity: .7; }
+
+    /* Small screens */
+    @media (max-width: 420px) { header { grid-template-columns: 72px 1fr; } .avatar { width: 72px; height: 72px; border-radius: 12px; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ben Racine",
+    "url": "https://USERNAME.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/YOUR-LINKEDIN/",
+      "https://medium.com/@YOUR-MEDIUM",
+      "https://github.com/USERNAME"
+    ],
+    "jobTitle": "Senior Software Engineer",
+    "knowsAbout": ["Rust", "TypeScript", "React", "Tokio", "Axum", "High‑assurance systems"]
+  }
+  </script>
+</head>
 <body>
-  <div class="filler"></div>
-  <div class="swimming">
-    <h4 style="display: inline;">Swimming: </h4><span>(3900 meters)</span>
-    <br>
-    <span class="content"></span>
-    <span class="swimming"></span> meters
-    <button type="button" class="btn btn-primary pull-right btn">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </button>
-    <button type="button" class="btn pull-right">
-      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-    </button>
-  </div>
-  <br>
-  <div class="biking" style="display: inline">
-    <h4 style="display: inline;">Biking:</h4><span> (112 miles)</span>
-    <br>
-    <span class="content"></span>
-    <span class="biking"></span> miles
-    <button type="button" class="btn btn-primary pull-right btn">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </button>
-    <button type="button" class="btn pull-right">
-      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-    </button>
-  </div>
-  <br>
-  <br>
-  <div class="running">
-    <h4 style="display: inline;">Running: </h4><span>(26.2 miles)</span>
-    <br>
-    <span class="content"></span>
-    <span class="running"></span> miles
-    <button type="button" class="btn btn-primary pull-right btn">
-      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </button>
-    <button type="button" class="btn pull-right">
-      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-    </button>
-  </div>
-  <br>
-  <div>
-    <button type="button" class="btn btn-danger btn clear-all">Clear All</button>
-  </div>
-  <br>
+  <main class="card" role="main">
+    <header>
+      <div class="avatar">
+        <!-- Replace with your avatar URL -->
+        <img alt="Portrait of Ben Racine" src="https://avatars.githubusercontent.com/u/000000?v=4" />
+      </div>
+      <div>
+        <h1>Ben Racine</h1>
+        <p class="sub">Rust • TypeScript • Systems • Safety‑critical</p>
+        <p class="bio">I design and build reliable systems. I like Rust for correctness, TypeScript for product velocity, and simple interfaces that explain themselves.</p>
+        <div class="meta">
+          <span class="kicker">Austin, TX</span>
+          <span class="dot">•</span>
+          <span class="kicker">Open to roles</span>
+          <span class="dot">•</span>
+          <span class="kicker">ben@example.com</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="links" aria-label="Primary links">
+      <a class="btn" href="https://github.com/USERNAME" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.46-1.2-1.12-1.52-1.12-1.52-.92-.64.07-.63.07-.63 1.02.07 1.56 1.07 1.56 1.07.9 1.58 2.36 1.12 2.93.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .85-.28 2.8 1.05.81-.23 1.68-.35 2.55-.35s1.74.12 2.55.35c1.95-1.33 2.8-1.05 2.8-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.67.95.67 1.92 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.5A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.94 6.5A2.44 2.44 0 1 1 6.94 1.6a2.44 2.44 0 0 1 0 4.9ZM2.8 22.4h8.28v-9.33c0-2.26.86-3.55 2.67-3.55 1.76 0 2.61 1.2 2.61 3.55v9.33h8.29V12.06c0-5.45-2.9-7.99-6.77-7.99-3.14 0-4.53 1.75-5.31 2.98h.07V4.06H2.8v18.34Z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="https://medium.com/@YOUR-MEDIUM" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 7.2c0-.4.1-.7.4-1 .1-.1.2-.2.3-.3L5.7 3c.2-.1.4-.2.7-.2.5 0 .8.4.8 1v14.4c0 .6-.3 1-1 1-.2 0-.4-.1-.6-.2L2.8 17c-.2-.2-.4-.4-.5-.7-.2-.4-.3-.8-.3-1.2V7.2Zm6.6.8 4.6 8.5-4.6 3V8Zm5.5 3.1 4.2 8.1c.2.4.7.6 1.2.4l1.8-.7c.5-.2.8-.8.5-1.3l-4.3-8.2 3.6-7c.2-.5 0-1.1-.5-1.3l-1.7-.7c-.5-.2-1.1 0-1.3.4l-4.9 9.5Z"/></svg>
+        Medium
+      </a>
+      <a class="btn" href="mailto:ben@example.com">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M2 6c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v.3l-10 6.4L2 6.3V6Zm0 2.7 8.9 5.7c.7.5 1.5.5 2.2 0L22 8.7V18a2 2 0 0 1-2 2H4c-1.1 0-2-.9-2-2V8.7Z"/></svg>
+        Email
+      </a>
+      <a class="btn" href="/Ben_Racine_Resume.pdf" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 0v6h6"/></svg>
+        Résumé (PDF)
+      </a>
+      <a class="btn" href="https://cal.com/YOUR-HANDLE" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm2 5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Zm-1 6a1 1 0 0 0 0 2h8a1 1 0 1 0 0-2H8Z"/></svg>
+        Book time
+      </a>
+    </section>
+
+    <footer>
+      <span class="tiny">© <span id="y"></span> Ben Racine</span>
+      <span class="tiny">Built with GitHub Pages</span>
+    </footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
-<script type="text/javascript">
-var swimming = localStorage.getItem('swimming') || 0;
-var biking = localStorage.getItem('biking') || 0;
-var running = localStorage.getItem('running') || 0;
-
-function addSwimming() {
-  swimming = parseInt(swimming) + 100;
-  localStorage.setItem('swimming', swimming);
-  $('.swimming .content').html(swimming);
-}
-
-function removeSwimming() {
-  swimming = parseInt(swimming) - 100;
-  if (swimming < 0) swimming = 0;
-  localStorage.setItem('swimming', swimming);
-  $('.swimming .content').html(swimming);
-}
-
-function addBiking() {
-  biking = parseInt(biking) + 1;
-  localStorage.setItem('biking', biking);
-  $('.biking .content').html(biking);
-}
-
-function removeBiking() {
-  biking = parseInt(biking) - 1;
-  if (biking < 0) biking = 0;
-  localStorage.setItem('biking', biking);
-  $('.biking .content').html(biking);
-}
-
-function addRunning() {
-  running = parseFloat(running) + 0.5;
-  localStorage.setItem('running', running);
-  $('.running .content').html(running);
-}
-
-function removeRunning() {
-  running = parseFloat(running) - 0.5;
-  if (running < 0) running = 0;
-  localStorage.setItem('running', running);
-  $('.running .content').html(running);
-}
-
-$('.swimming .content').html(swimming);
-$('.biking .content').html(biking);
-$('.running .content').html(running);
-
-// Click handlers
-$('.swimming .glyphicon-plus').on('tophold', function() {
-  alert('long press occured');
-});
-
-$('.swimming .glyphicon plug').bind('taphold', tapholdHandler);
-
-function tapholdHandler() {
-  alert('long press occured');
-}
-
-// Add 1 unit
-$('.swimming .glyphicon-plus').click(addSwimming);
-$('.biking .glyphicon-plus').click(addBiking);
-$('.running .glyphicon-plus').click(addRunning);
-
-// Add specific unit
-/*
-$('.swimming .glyphicon-plus').click();
-$('.biking .glyphicon-plus').click();
-$('.running .glyphicon-plus').click();
-*/
-
-$('.swimming .glyphicon-minus').click(removeSwimming);
-$('.biking .glyphicon-minus').click(removeBiking);
-$('.running .glyphicon-minus').click(removeRunning);
-
-$('.clear-all').click(function() {
-  var msg = 'Are you *really* sure that you want to delete all of your progress? I only included this for debugging purposes, really.';
-  bootbox.confirm(msg, function(result) {
-    if (result)
-      clearAll();
-  });
-});
-
-function clearAll() {
-  running = 0; swimming = 0; biking = 0;
-  localStorage.setItem('running', running); 
-  localStorage.setItem('swimming', swimming); 
-  localStorage.setItem('biking', biking); 
-  $('.swimming .content').html(swimming);
-  $('.biking .content').html(biking);
-  $('.running .content').html(running);
-}
-
-</script>
 </html>
