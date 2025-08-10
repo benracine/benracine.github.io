@@ -89,7 +89,13 @@
     .tiny { opacity: .7; }
 
     /* Small screens */
-    @media (max-width: 420px) { header { grid-template-columns: 72px 1fr; } .avatar { width: 72px; height: 72px; border-radius: 12px; } }
+    @media (max-width: 420px) { 
+      header { grid-template-columns: 72px 1fr; } 
+      .avatar { width: 72px; height: 72px; border-radius: 12px; } 
+      .bio { display: none; }
+      .bio-mobile { display: block; margin: 18px 0 0; line-height: 1.6; font-size: 16px; color: color-mix(in oklab, var(--text) 86%, #999 14%); }
+    }
+    .bio-mobile { display: none; }
   </style>
   <script type="application/ld+json">
   {
@@ -121,6 +127,9 @@
           To build these high-assurance full stack systems where reliability is paramount, I leverage tools such as
           Rust, Tokio, Axum, TypeScript, React, and PostgreSQL among many others.  I leverage modern AI and
           cloud-based tools to enhance development workflows and improve system scale and reliability.
+        </p>
+        <p class="bio-mobile">
+          Rust • TypeScript developer building high-assurance systems with modern tools and AI-enhanced workflows.
         </p>
         <div class="meta">
           <span class="kicker">benracindev@gmail.com</span>
