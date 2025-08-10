@@ -19,6 +19,9 @@
       content="https://avatars.githubusercontent.com/benracine?v=4&s=200"
     />
     <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://avatars.githubusercontent.com/benracine?v=4&s=32" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://avatars.githubusercontent.com/benracine?v=4&s=16" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/benracine?v=4&s=180" />
     <style>
       :root {
         --bg: #0a0f1c;
@@ -128,6 +131,15 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      h1:hover {
+        background: linear-gradient(135deg, var(--accent) 0%, color-mix(in oklab, var(--accent) 80%, var(--accent-2) 20%) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transform: translateX(2px);
       }
       .sub {
         color: var(--muted);
