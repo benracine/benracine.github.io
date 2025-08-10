@@ -88,14 +88,15 @@
     .kicker { font-variant-numeric: tabular-nums; }
     .tiny { opacity: .7; }
 
+    .bio-mobile { display: none; }
+
     /* Small screens */
-    @media (max-width: 420px) { 
+    @media (max-width: 768px) { 
       header { grid-template-columns: 72px 1fr; } 
       .avatar { width: 72px; height: 72px; border-radius: 12px; } 
-      .bio { display: none; }
-      .bio-mobile { display: block; margin: 18px 0 0; line-height: 1.6; font-size: 16px; color: color-mix(in oklab, var(--text) 86%, #999 14%); }
+      .bio { display: none !important; }
+      .bio-mobile { display: block !important; margin: 18px 0 0; line-height: 1.6; font-size: 16px; color: color-mix(in oklab, var(--text) 86%, #999 14%); }
     }
-    .bio-mobile { display: none; }
   </style>
   <script type="application/ld+json">
   {
@@ -123,10 +124,7 @@
         <h1>Ben Racine</h1>
         <p class="sub">Rust • TypeScript • Systems • Safety‑critical</p>
         <p class="bio">
-          I apply deep computational and physical science expertise to deliver elegant, verifiable digital solutions.
-          To build these high-assurance full stack systems where reliability is paramount, I leverage tools such as
-          Rust, Tokio, Axum, TypeScript, React, and PostgreSQL among many others.  I leverage modern AI and
-          cloud-based tools to enhance development workflows and improve system scale and reliability.
+          I build high-assurance full stack systems where reliability is paramount, using Rust, Tokio, Axum, TypeScript, React, and PostgreSQL. I apply deep computational and physical science expertise, enhanced by modern AI and cloud tools, to deliver elegant, verifiable solutions.
         </p>
         <p class="bio-mobile">
           Rust • TypeScript developer building high-assurance systems with modern tools and AI-enhanced workflows.
