@@ -22,6 +22,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦀</text></svg>" />
     <style>
       :root {
+        color-scheme: dark light;
         --bg: #0a0f1c;
         --card: #0f1629;
         --text: #e2e8f0;
@@ -29,12 +30,6 @@
         --accent: #67e8f9;
         --accent-2: #a78bfa;
         --ring: rgba(103, 232, 249, 0.35);
-        
-        /* Enhanced color palette */
-        --green: #9ece6a;
-        --violet: #9d7cd8;
-        --orange: #ff9e64;
-        --cyan: #73daca;
       }
       @media (prefers-color-scheme: light) {
         :root {
@@ -45,27 +40,6 @@
           --accent: #0891b2;
           --accent-2: #7c3aed;
           --ring: rgba(8, 145, 178, 0.25);
-          
-          /* Enhanced color palette - lighter versions */
-          --green: #7fb069;
-          --violet: #8b6fb8;
-          --orange: #e68a54;
-          --cyan: #5fc7b8;
-        }
-      }
-      @media (prefers-color-scheme: light) {
-        body {
-          background: radial-gradient(
-              1200px 800px at 80% -10%,
-              rgba(103, 232, 249, 0.08),
-              transparent 60%
-            ),
-            radial-gradient(
-              900px 700px at -10% 20%,
-              rgba(167, 139, 250, 0.05),
-              transparent 55%
-            ),
-            #f8fafc;
         }
       }
       * {
@@ -94,8 +68,28 @@
         display: grid;
         place-items: center;
         align-content: start;
-        padding: 40px 24px 24px;
+        padding: 48px 24px 32px;
         min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      @media (prefers-color-scheme: light) {
+        body {
+          background: radial-gradient(
+              1200px 800px at 80% -10%,
+              rgba(8, 145, 178, 0.08),
+              transparent 60%
+            ),
+            radial-gradient(
+              900px 700px at -10% 20%,
+              rgba(124, 58, 237, 0.05),
+              transparent 55%
+            ),
+            var(--bg);
+        }
+      }
+      ::selection {
+        background: color-mix(in oklab, var(--accent) 32%, transparent);
       }
       .card {
         width: 100%;
@@ -103,8 +97,9 @@
         background: color-mix(in hsl, var(--card) 92%, transparent);
         border: 1px solid color-mix(in oklab, var(--accent) 8%, var(--text) 5%);
         border-radius: 20px;
-        padding: 28px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px color-mix(in oklab, var(--accent) 3%, transparent);
+        padding: 32px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25),
+          0 0 0 1px color-mix(in oklab, var(--accent) 3%, transparent);
         backdrop-filter: saturate(1.2) blur(8px);
       }
       header {
@@ -112,7 +107,6 @@
         flex-direction: column;
         gap: 20px;
       }
-      
       .header-top {
         display: grid;
         grid-template-columns: 96px 1fr;
@@ -126,6 +120,7 @@
         overflow: hidden;
         border: 1px solid color-mix(in oklab, var(--accent) 15%, var(--text) 8%);
         box-shadow: 0 0 20px color-mix(in oklab, var(--accent) 4%, transparent);
+        flex-shrink: 0;
       }
       .avatar img {
         width: 100%;
@@ -136,45 +131,49 @@
       h1 {
         font-size: clamp(22px, 3.4vw, 30px);
         margin: 0 0 6px;
-        letter-spacing: 0.2px;
-        background: linear-gradient(135deg, var(--text) 0%, color-mix(in oklab, var(--accent) 60%, var(--text) 40%) 100%);
+        letter-spacing: -0.02em;
+        font-weight: 600;
+        background: linear-gradient(
+          135deg,
+          var(--text) 0%,
+          color-mix(in oklab, var(--accent) 60%, var(--text) 40%) 100%
+        );
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-      .sub {
+      .sub,
+      .sub-mobile {
+        position: relative;
         color: var(--muted);
         margin: 0;
         font-size: 15px;
+        line-height: 1.45;
+        padding-left: 10px;
       }
-      
-      .sub::before {
-        content: '';
+      .sub::before,
+      .sub-mobile::before {
+        content: "";
         position: absolute;
-        left: -10px;
-        top: 50%;
-        width: 3px;
-        height: 60%;
-        background: linear-gradient(45deg, var(--accent), var(--accent-2));
+        left: -2px;
+        top: 0.2em;
+        bottom: 0.2em;
+        width: 2px;
+        background: linear-gradient(180deg, var(--accent), var(--accent-2));
         border-radius: 2px;
-        transform: translateY(-50%);
-        opacity: 0.3;
+        opacity: 0.55;
       }
-      
-      .sub {
-        position: relative;
-        padding-left: 8px;
-      }
-
-      .bio {
+      .bio,
+      .bio-mobile {
         margin: 6px 0 0;
-        line-height: 1.6;
+        line-height: 1.65;
         font-size: 16px;
         color: color-mix(in oklab, var(--text) 86%, #999 14%);
       }
-
       .links {
-        margin-top: 22px;
+        margin-top: 24px;
+        padding-top: 22px;
+        border-top: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: 12px;
@@ -188,7 +187,7 @@
         border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
         padding: 12px 14px;
         border-radius: 12px;
-        font-weight: 560;
+        font-weight: 600;
         letter-spacing: 0.15px;
         background: linear-gradient(
           180deg,
@@ -196,18 +195,25 @@
           color-mix(in oklab, var(--card) 98%, transparent) 100%
         );
         color: var(--text);
-        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset, 0 1px 3px color-mix(in oklab, var(--accent) 2%, transparent);
-        transition: all 0.2s ease;
+        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset,
+          0 1px 3px color-mix(in oklab, var(--accent) 2%, transparent);
+        transition: border-color 0.2s ease, background 0.2s ease,
+          box-shadow 0.2s ease, transform 0.15s ease;
       }
       .btn:hover {
         border-color: var(--accent);
-        outline: 3px solid var(--ring);
         background: linear-gradient(
           180deg,
           color-mix(in oklab, var(--card) 85%, var(--accent) 5%) 0%,
           color-mix(in oklab, var(--card) 95%, var(--accent) 2%) 100%
         );
-        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset, 0 4px 12px color-mix(in oklab, var(--accent) 8%, transparent);
+        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset,
+          0 4px 12px color-mix(in oklab, var(--accent) 8%, transparent);
+      }
+      .btn:focus-visible {
+        outline: 3px solid var(--ring);
+        outline-offset: 2px;
+        border-color: var(--accent);
       }
       .btn:active {
         transform: translateY(1px);
@@ -217,7 +223,6 @@
         height: 18px;
         opacity: 0.9;
       }
-
       .meta {
         margin-top: 18px;
         display: flex;
@@ -227,69 +232,69 @@
         color: var(--muted);
         font-size: 14px;
       }
+      .meta a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .meta a:hover,
+      .meta a:focus-visible {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        outline: none;
+      }
       .dot {
         opacity: 0.4;
-      }
-      footer {
-        margin-top: 26px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 12px;
-        color: var(--muted);
-        font-size: 13px;
       }
       .kicker {
         font-variant-numeric: tabular-nums;
       }
-      .tiny {
-        opacity: 0.7;
-      }
-
-      .bio-mobile {
-        display: none;
-      }
-
+      .bio-mobile,
       .sub-mobile {
         display: none;
       }
-
-      /* Small screens */
       @media (max-width: 768px) {
+        body {
+          padding: 28px 16px 24px;
+        }
+        .card {
+          padding: 24px;
+        }
         .header-top {
           grid-template-columns: 72px 1fr;
+          gap: 16px;
         }
         .avatar {
           width: 72px;
           height: 72px;
           border-radius: 12px;
-          border: 1px solid color-mix(in oklab, var(--accent) 15%, var(--text) 8%);
-          box-shadow: 0 0 15px color-mix(in oklab, var(--accent) 6%, transparent);
         }
         .bio {
-          display: none !important;
+          display: none;
         }
         .bio-mobile {
-          display: block !important;
-          margin: 6px 0 0;
-          line-height: 1.6;
-          font-size: 16px;
-          color: color-mix(in oklab, var(--text) 86%, #999 14%);
+          display: block;
         }
         .sub {
-          display: none !important;
+          display: none;
         }
         .sub-mobile {
-          display: block !important;
-          color: var(--muted);
-          margin: 0;
-          font-size: 15px;
+          display: block;
         }
         .meta {
-          display: none !important;
+          justify-content: flex-start;
+          gap: 10px;
         }
         .links {
           gap: 8px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .btn {
+          transition: none;
+        }
+        .btn:active {
+          transform: none;
         }
       }
     </style>
@@ -325,6 +330,8 @@
           <div class="avatar">
             <img
               alt="Portrait of Ben Racine"
+              width="96"
+              height="96"
               src="https://avatars.githubusercontent.com/benracine?v=4&s=200"
             />
           </div>
@@ -358,13 +365,11 @@
             <a
               href="mailto:benracinedev@gmail.com"
               class="kicker"
-              style="color: inherit; text-decoration: none"
               >benracinedev@gmail.com</a>
             <span class="dot">•</span>
             <a
               href="tel:+13606107356"
               class="kicker"
-              style="color: inherit; text-decoration: none"
               >360.610.7356</a
             >
           </div>
