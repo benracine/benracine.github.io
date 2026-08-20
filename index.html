@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ben Racine — Software Engineer</title>
+    <title>Ben Racine</title>
     <meta
       name="description"
-      content="Software engineer focused on Rust, TypeScript, and high-assurance systems."
+      content="Systems software in Rust and C++ for vehicles and operations."
     />
     <link rel="canonical" href="https://benracine.github.io/" />
-    <meta property="og:title" content="Ben Racine — Software Engineer" />
+    <meta property="og:title" content="Ben Racine" />
     <meta
       property="og:description"
-      content="Rust • TypeScript • Systems • Safety-critical"
+      content="Systems software in Rust and C++ for vehicles and operations."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://benracine.github.io/" />
@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#0f172a" />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦀</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%230f1629%22/><text x=%2250%22 y=%2268%22 text-anchor=%22middle%22 font-size=%2254%22 font-family=%22ui-sans-serif,system-ui,sans-serif%22 fill=%22%23e2e8f0%22>B</text></svg>"
     />
     <style>
       :root {
@@ -134,40 +134,50 @@
         font-size: clamp(22px, 3.4vw, 30px);
         margin: 0 0 6px;
         letter-spacing: 0.2px;
-        background: linear-gradient(
-          135deg,
-          var(--text) 0%,
-          color-mix(in oklab, var(--accent) 60%, var(--text) 40%) 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-weight: 600;
       }
       .sub {
-        position: relative;
         color: var(--muted);
         margin: 0;
         font-size: 15px;
-        padding-left: 8px;
         line-height: 1.45;
-      }
-      .sub::before {
-        content: "";
-        position: absolute;
-        left: -10px;
-        top: 50%;
-        width: 3px;
-        height: 60%;
-        background: linear-gradient(45deg, var(--accent), var(--accent-2));
-        border-radius: 2px;
-        transform: translateY(-50%);
-        opacity: 0.3;
       }
       .bio {
         margin: 6px 0 0;
         line-height: 1.6;
         font-size: 16px;
         color: color-mix(in oklab, var(--text) 86%, #999 14%);
+      }
+      .work {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .work h2 {
+        margin: 0;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .work article {
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+        background: color-mix(in oklab, var(--card) 96%, var(--accent) 2%);
+      }
+      .work h3 {
+        margin: 0 0 4px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .work p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: color-mix(in oklab, var(--text) 82%, #999 18%);
       }
       .links {
         margin-top: 22px;
@@ -289,7 +299,7 @@
         "url": "https://benracine.github.io/",
         "image": "https://avatars.githubusercontent.com/benracine?v=4&s=400",
         "email": "mailto:benracinedev@gmail.com",
-        "jobTitle": "Software Engineer",
+        "jobTitle": "Senior Software Engineer",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Houston",
@@ -303,11 +313,12 @@
         ],
         "knowsAbout": [
           "Rust",
-          "TypeScript",
-          "React",
+          "C++",
           "Tokio",
-          "Axum",
-          "High-assurance systems"
+          "Distributed systems",
+          "High-assurance systems",
+          "Vehicle systems",
+          "Computational fluid dynamics"
         ]
       }
     </script>
@@ -326,29 +337,24 @@
           </div>
           <div>
             <h1>Ben Racine</h1>
-            <p class="sub">
-              High-assurance systems • Rust • Tokio • Axum • TypeScript • React
-              • AWS • GCP
-            </p>
+            <p class="sub">Systems software · Rust · C++</p>
           </div>
         </div>
 
         <div>
           <p class="bio">
-            Veteran software engineer with 20 years of experience, currently
-            building high-assurance systems in Rust and other modern tools for
-            aerospace-grade reliability. My work spans the full stack, from
-            backend services to frontend interfaces, ensuring every component
-            meets the highest standards of reliability and performance. A strong
-            background in the physical sciences and computational methods
-            guides my approach to software design and verification.
+            At Axiom Space I write Rust and C++ for station command-and-telemetry
+            and for Astrolab’s CLV-1 lunar rover: vehicle simulation, networking,
+            embedded dashboard software, and the operator interface. I came to
+            this from naval architecture and computational fluid dynamics,
+            including work for Boeing’s Sea-Based X-Band Radar and the hydroelastic analysis on the SR-520 bridge.
           </p>
 
           <div class="meta">
             <span class="kicker">Houston</span>
             <span class="dot" aria-hidden="true">•</span>
             <a
-              href="mailto:benracinedev@gmail.com?subject=Hello%20from%20your%20portfolio%20site"
+              href="mailto:benracinedev@gmail.com"
               class="kicker"
               >benracinedev@gmail.com</a
             >
@@ -357,6 +363,33 @@
           </div>
         </div>
       </header>
+
+      <section class="work" aria-label="Selected work">
+        <h2>Selected work</h2>
+        <article>
+          <h3>Astrolab CLV-1</h3>
+          <p>
+            Command-and-display stack for a lunar rover prototype: Rust vehicle
+            simulator, UDP message router, Qt/C++ operator interface, and
+            embedded C++ on the physical dashboard.
+          </p>
+        </article>
+        <article>
+          <h3>Axiom Station</h3>
+          <p>
+            Rust services for command, anomaly detection, and telemetry, plus an
+            event-sourced procedure system that holds state across gaps in the
+            link.
+          </p>
+        </article>
+        <article>
+          <h3>CFD and structures</h3>
+          <p>
+            Hydroelastic loads, marine vehicles, and radar-platform aerodynamics
+            — including Boeing’s Sea-Based X-Band Radar — using CFD and FEA.
+          </p>
+        </article>
+      </section>
 
       <section class="links" aria-label="Primary links">
         <a
@@ -375,7 +408,7 @@
         </a>
         <a
           class="btn"
-          href="BenRacine_Resume_June_2026.pdf"
+          href="Resume_BenRacine_2026_August.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -399,25 +432,11 @@
               d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.46-1.2-1.12-1.52-1.12-1.52-.92-.64.07-.63.07-.63 1.02.07 1.56 1.07 1.56 1.07.9 1.58 2.36 1.12 2.93.85.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.75 0 0 .85-.28 2.8 1.05.81-.23 1.68-.35 2.55-.35s1.74.12 2.55.35c1.95-1.33 2.8-1.05 2.8-1.05.55 1.43.2 2.49.1 2.75.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.67.95.67 1.92 0 1.38-.01 2.49-.01 2.83 0 .27.18.6.69.5A10.04 10.04 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"
             />
           </svg>
-          Code
+          GitHub
         </a>
         <a
           class="btn"
-          href="https://medium.com/@mylifewodoor/rust-in-2025-cf50d386f881"
-          target="_blank"
-          rel="me noopener noreferrer"
-        >
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"
-            />
-          </svg>
-          Blog
-        </a>
-        <a
-          class="btn"
-          href="mailto:benracinedev@gmail.com?subject=Hello%20from%20your%20portfolio%20site"
+          href="mailto:benracinedev@gmail.com"
         >
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -426,20 +445,6 @@
             />
           </svg>
           Email
-        </a>
-        <a
-          class="btn"
-          href="https://x.com/i3enhamin"
-          target="_blank"
-          rel="me noopener noreferrer"
-        >
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-          X
         </a>
       </section>
 
