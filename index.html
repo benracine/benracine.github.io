@@ -18,28 +18,30 @@
       property="og:image"
       content="https://avatars.githubusercontent.com/benracine?v=4&s=200"
     />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#08090c" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦀</text></svg>" />
     <style>
       :root {
         color-scheme: dark light;
-        --bg: #0a0f1c;
-        --card: #0f1629;
-        --text: #e2e8f0;
-        --muted: #94a3b8;
-        --accent: #67e8f9;
-        --accent-2: #a78bfa;
-        --ring: rgba(103, 232, 249, 0.35);
+        --bg: #08090c;
+        --card: #0e1014;
+        --text: #ececec;
+        --muted: #8b9098;
+        --accent: #c5ccd4;
+        --line: rgba(255, 255, 255, 0.1);
+        --ring: rgba(255, 255, 255, 0.28);
+        --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+          "Liberation Mono", monospace;
       }
       @media (prefers-color-scheme: light) {
         :root {
-          --bg: #f8fafc;
+          --bg: #f4f4f2;
           --card: #ffffff;
-          --text: #1e293b;
-          --muted: #64748b;
-          --accent: #0891b2;
-          --accent-2: #7c3aed;
-          --ring: rgba(8, 145, 178, 0.25);
+          --text: #161616;
+          --muted: #5c6168;
+          --accent: #2a2e33;
+          --line: rgba(0, 0, 0, 0.1);
+          --ring: rgba(0, 0, 0, 0.22);
         }
       }
       * {
@@ -52,60 +54,39 @@
       body {
         margin: 0;
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-          Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-        background: radial-gradient(
-            1200px 800px at 80% -10%,
-            rgba(103, 232, 249, 0.12),
-            transparent 60%
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background-color: var(--bg);
+        background-image: linear-gradient(
+            var(--line) 1px,
+            transparent 1px
           ),
-          radial-gradient(
-            900px 700px at -10% 20%,
-            rgba(167, 139, 250, 0.08),
-            transparent 55%
-          ),
-          var(--bg);
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 56px 56px;
+        background-position: center top;
         color: var(--text);
         display: grid;
         place-items: center;
         align-content: start;
-        padding: 48px 24px 32px;
+        padding: 56px 24px 40px;
         min-height: 100vh;
         -webkit-font-smoothing: antialiased;
         text-rendering: optimizeLegibility;
       }
-      @media (prefers-color-scheme: light) {
-        body {
-          background: radial-gradient(
-              1200px 800px at 80% -10%,
-              rgba(8, 145, 178, 0.08),
-              transparent 60%
-            ),
-            radial-gradient(
-              900px 700px at -10% 20%,
-              rgba(124, 58, 237, 0.05),
-              transparent 55%
-            ),
-            var(--bg);
-        }
-      }
       ::selection {
-        background: color-mix(in oklab, var(--accent) 32%, transparent);
+        background: color-mix(in oklab, var(--text) 22%, transparent);
       }
       .card {
         width: 100%;
         max-width: 680px;
-        background: color-mix(in hsl, var(--card) 92%, transparent);
-        border: 1px solid color-mix(in oklab, var(--accent) 8%, var(--text) 5%);
-        border-radius: 20px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 4px;
         padding: 32px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25),
-          0 0 0 1px color-mix(in oklab, var(--accent) 3%, transparent);
-        backdrop-filter: saturate(1.2) blur(8px);
       }
       header {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 22px;
       }
       .header-top {
         display: grid;
@@ -116,10 +97,9 @@
       .avatar {
         width: 96px;
         height: 96px;
-        border-radius: 16px;
+        border-radius: 2px;
         overflow: hidden;
-        border: 1px solid color-mix(in oklab, var(--accent) 15%, var(--text) 8%);
-        box-shadow: 0 0 20px color-mix(in oklab, var(--accent) 4%, transparent);
+        border: 1px solid var(--line);
         flex-shrink: 0;
       }
       .avatar img {
@@ -130,53 +110,47 @@
       }
       h1 {
         font-size: clamp(22px, 3.4vw, 30px);
-        margin: 0 0 6px;
-        letter-spacing: -0.02em;
+        margin: 0 0 8px;
+        letter-spacing: -0.035em;
         font-weight: 600;
-        background: linear-gradient(
-          135deg,
-          var(--text) 0%,
-          color-mix(in oklab, var(--accent) 60%, var(--text) 40%) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: var(--text);
       }
       .sub,
       .sub-mobile {
         position: relative;
         color: var(--muted);
         margin: 0;
-        font-size: 15px;
-        line-height: 1.45;
-        padding-left: 10px;
+        font-family: var(--mono);
+        font-size: 12px;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+        padding-left: 12px;
       }
       .sub::before,
       .sub-mobile::before {
         content: "";
         position: absolute;
-        left: -2px;
-        top: 0.2em;
-        bottom: 0.2em;
-        width: 2px;
-        background: linear-gradient(180deg, var(--accent), var(--accent-2));
-        border-radius: 2px;
-        opacity: 0.55;
+        left: 0;
+        top: 0.35em;
+        bottom: 0.35em;
+        width: 1px;
+        background: var(--text);
+        opacity: 0.45;
       }
       .bio,
       .bio-mobile {
-        margin: 6px 0 0;
+        margin: 4px 0 0;
         line-height: 1.65;
         font-size: 16px;
-        color: color-mix(in oklab, var(--text) 86%, #999 14%);
+        color: color-mix(in oklab, var(--text) 82%, var(--muted) 18%);
       }
       .links {
-        margin-top: 24px;
+        margin-top: 26px;
         padding-top: 22px;
-        border-top: 1px solid color-mix(in oklab, var(--text) 8%, transparent);
+        border-top: 1px solid var(--line);
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 12px;
+        gap: 8px;
       }
       .btn {
         text-decoration: none;
@@ -184,34 +158,22 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
-        padding: 12px 14px;
-        border-radius: 12px;
-        font-weight: 600;
-        letter-spacing: 0.15px;
-        background: linear-gradient(
-          180deg,
-          color-mix(in oklab, var(--card) 85%, var(--accent) 2%) 0%,
-          color-mix(in oklab, var(--card) 98%, transparent) 100%
-        );
+        border: 1px solid var(--line);
+        padding: 11px 14px;
+        border-radius: 2px;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        background: transparent;
         color: var(--text);
-        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset,
-          0 1px 3px color-mix(in oklab, var(--accent) 2%, transparent);
-        transition: border-color 0.2s ease, background 0.2s ease,
-          box-shadow 0.2s ease, transform 0.15s ease;
+        transition: border-color 0.15s ease, background 0.15s ease;
       }
       .btn:hover {
         border-color: var(--accent);
-        background: linear-gradient(
-          180deg,
-          color-mix(in oklab, var(--card) 85%, var(--accent) 5%) 0%,
-          color-mix(in oklab, var(--card) 95%, var(--accent) 2%) 100%
-        );
-        box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.12) inset,
-          0 4px 12px color-mix(in oklab, var(--accent) 8%, transparent);
+        background: color-mix(in oklab, var(--text) 5%, transparent);
       }
       .btn:focus-visible {
-        outline: 3px solid var(--ring);
+        outline: 2px solid var(--ring);
         outline-offset: 2px;
         border-color: var(--accent);
       }
@@ -219,18 +181,20 @@
         transform: translateY(1px);
       }
       .icon {
-        width: 18px;
-        height: 18px;
-        opacity: 0.9;
+        width: 16px;
+        height: 16px;
+        opacity: 0.85;
       }
       .meta {
         margin-top: 18px;
         display: flex;
-        justify-content: center;
-        gap: 14px;
+        justify-content: flex-start;
+        gap: 12px;
         flex-wrap: wrap;
         color: var(--muted);
-        font-size: 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.02em;
       }
       .meta a {
         color: inherit;
@@ -238,7 +202,7 @@
       }
       .meta a:hover,
       .meta a:focus-visible {
-        color: var(--accent);
+        color: var(--text);
         text-decoration: underline;
         text-underline-offset: 3px;
         outline: none;
@@ -248,6 +212,16 @@
       }
       .kicker {
         font-variant-numeric: tabular-nums;
+      }
+      footer {
+        margin-top: 22px;
+        display: flex;
+        justify-content: flex-end;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        opacity: 0.7;
       }
       .bio-mobile,
       .sub-mobile {
@@ -267,7 +241,6 @@
         .avatar {
           width: 72px;
           height: 72px;
-          border-radius: 12px;
         }
         .bio {
           display: none;
@@ -280,10 +253,6 @@
         }
         .sub-mobile {
           display: block;
-        }
-        .meta {
-          justify-content: flex-start;
-          gap: 10px;
         }
         .links {
           gap: 8px;
@@ -458,6 +427,9 @@
           X
         </a>
       </section>
+      <footer>
+        <span>29.7604°N 95.3698°W</span>
+      </footer>
     </main>
   </body>
 </html>
